@@ -31,7 +31,8 @@ public class PickedObject : MonoBehaviour {
 				objectPosition = transform.position;
 				objectRotation = transform.rotation;
 
-				if (Input.GetMouseButtonDown(0) && canPick) {
+				//if (Input.GetMouseButtonDown(0) && canPick) {
+				if (Input.GetKeyDown(KeyCode.E) && canPick) {
 					picking = true;
 
 					pickedObject = hit.collider.gameObject;
@@ -45,12 +46,14 @@ public class PickedObject : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetMouseButtonUp (0) && picking) {
+		//if (Input.GetMouseButtonUp (0) && picking) {
+		if (Input.GetKeyUp(KeyCode.E) && picking) {
 			picking = false;
 			canPick = false;
 		}
 
-		if (Input.GetMouseButtonDown (0) && !canPick) {
+		//if (Input.GetMouseButtonDown (0) && !canPick) {
+		if (Input.GetKeyDown(KeyCode.E) && !canPick) {
 			canPick = true;
 			Rigidbody rb = pickedObject.GetComponent<Rigidbody>();
 			Collider cd = pickedObject.GetComponent<Collider>();
